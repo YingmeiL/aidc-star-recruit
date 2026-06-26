@@ -849,6 +849,75 @@
   </div>
 </section>
 
+<!-- PROGRAM LINEAGE -->
+<section id="lineage" style="padding:48px 0 8px">
+  <div class="wrap">
+    <div class="lineage reveal">
+      <div class="lineage-tag">
+        <span class="ll-dot"></span>
+        <span data-lang="zh">Bravo Star · 承继「阿里星」</span>
+        <span data-lang="en">Bravo Star · Heir of Alibaba Star</span>
+      </div>
+      <h2 class="lineage-title">
+        <span data-lang="zh">把研究做成<em>改变世界</em>的力量。</span>
+        <span data-lang="en">Turn research into a force that <em>reshapes the world</em>.</span>
+      </h2>
+      <div class="lineage-body">
+        <p data-lang="zh">「阿里星」是阿里巴巴面向全球顶尖青年科研人才的旗舰招募与培养计划——以多元业务场景与国际化平台，邀请年轻人探索前沿、参与产业变革。</p>
+        <p data-lang="zh"><strong>Bravo Star</strong> 是阿里国际数字商业集团（AIDC）承继其使命的新一代旗舰项目，聚焦人工智能、算法与产品等前沿方向，培养引领全球电商变革的领军人才。</p>
+        <p data-lang="en"><strong>Alibaba Star</strong> is Alibaba's flagship program for the world's most exceptional young researchers — pairing them with real, global-scale business playgrounds to push frontier work into industry.</p>
+        <p data-lang="en"><strong>Bravo Star</strong> carries that lineage at AIDC, recruiting top talent in AI, algorithms and product to lead the next era of global commerce.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  #lineage .lineage{
+    position:relative;
+    background:linear-gradient(135deg, color-mix(in oklch, var(--brand) 7%, var(--bg)) 0%, var(--surface) 70%);
+    border:1px solid color-mix(in oklch, var(--brand) 22%, var(--line));
+    border-left:3px solid var(--brand);
+    border-radius:18px;
+    padding:26px 30px 24px;
+    display:grid;
+    gap:12px;
+  }
+  #lineage .lineage-tag{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:12.5px; letter-spacing:.06em; font-weight:600;
+    color:var(--brand-ink, var(--brand));
+    text-transform:none;
+  }
+  #lineage .ll-dot{
+    width:7px; height:7px; border-radius:50%;
+    background:var(--brand);
+    box-shadow:0 0 0 4px color-mix(in oklch, var(--brand) 22%, transparent);
+  }
+  #lineage .lineage-title{
+    margin:0;
+    font-size:clamp(22px, 2.6vw, 30px);
+    line-height:1.25;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+    text-wrap:balance;
+  }
+  #lineage .lineage-title em{
+    font-style:normal; color:var(--brand);
+  }
+  #lineage .lineage-body{
+    display:grid; gap:8px;
+    color:var(--ink-soft);
+    font-size:15.5px; line-height:1.65;
+    max-width:72ch;
+  }
+  #lineage .lineage-body p{ margin:0 }
+  #lineage .lineage-body strong{ color:var(--ink); font-weight:650 }
+  @media (max-width:640px){
+    #lineage{ padding:32px 0 4px }
+    #lineage .lineage{ padding:22px 20px 20px; border-radius:14px }
+  }
+</style>
+
 <!-- ABOUT AIDC -->
 <section id="about">
   <div class="wrap">
