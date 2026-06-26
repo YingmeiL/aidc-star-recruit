@@ -1,0 +1,1605 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>AIDC · Star — 顶尖人才招聘 / Top Talent Recruiting</title>
+<meta name="description" content="阿里国际 AIDC 智能技术 / 供应链产技 / 平台技术，面向博士、硕士及顶尖算法人才的 8 大 Star 课题。Alibaba International Digital Commerce — 8 frontier AI tracks for top researchers and engineers." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="AIDC · Star — 顶尖人才招聘" />
+<meta property="og:description" content="200+ countries · billions of users · 8 frontier tracks. Build the next era of global commerce AI." />
+<meta property="og:image" content="og.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23ff6a13'/><text x='16' y='22' font-family='system-ui' font-size='18' font-weight='800' fill='white' text-anchor='middle'>★</text></svg>" />
+
+<style>
+  :root{
+    --bg:        oklch(0.985 0.005 90);
+    --bg-2:      oklch(0.975 0.010 230);
+    --surface:   oklch(0.965 0.010 230);
+    --surface-2: oklch(0.945 0.015 230);
+    --ink:       oklch(0.22 0.020 250);
+    --ink-soft:  oklch(0.42 0.015 250);
+    --ink-mute:  oklch(0.55 0.012 250);
+    --brand:     oklch(0.70 0.180 55);
+    --brand-ink: oklch(0.50 0.180 55);
+    --brand-soft:oklch(0.94 0.060 65);
+    --accent:    oklch(0.62 0.135 230);
+    --accent-soft:oklch(0.93 0.045 230);
+    --line:      oklch(0.90 0.010 240);
+    --line-2:    oklch(0.84 0.010 240);
+
+    --r-sm: 8px; --r-md: 14px; --r-lg: 22px; --r-xl: 32px;
+    --shadow-1: 0 1px 0 oklch(0.90 0.010 240 / .8);
+    --shadow-2: 0 18px 40px -28px oklch(0.20 0.04 250 / .25);
+
+    --font-zh: "PingFang SC","Source Han Sans SC","Noto Sans SC",system-ui,sans-serif;
+    --font-en: "Inter","Geist",ui-sans-serif,system-ui,sans-serif;
+    --font-mono: "JetBrains Mono",ui-monospace,monospace;
+  }
+
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:var(--font-zh);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  html[lang="en"] body{font-family:var(--font-en)}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  ::selection{background:var(--brand-soft);color:var(--brand-ink)}
+
+  /* ----------------- Layout ----------------- */
+  .wrap{max-width:1200px;margin:0 auto;padding:0 28px}
+  @media (max-width:640px){ .wrap{padding:0 20px} }
+
+  /* ----------------- Top nav ----------------- */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:saturate(140%) blur(10px);
+    -webkit-backdrop-filter:saturate(140%) blur(10px);
+    background:color-mix(in oklch, var(--bg) 78%, transparent);
+    border-bottom:1px solid color-mix(in oklch, var(--line) 70%, transparent);
+  }
+  .nav-row{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-0.01em}
+  .brand-mark{
+    width:30px;height:30px;border-radius:9px;
+    display:grid;place-items:center;color:#fff;font-weight:800;
+    background:linear-gradient(135deg, oklch(0.74 0.18 55) 0%, oklch(0.66 0.20 35) 100%);
+    box-shadow:0 6px 14px -6px oklch(0.55 0.18 55 / .55);
+  }
+  .brand-mark svg{width:16px;height:16px}
+  .brand-name{font-size:15px}
+  .brand-name em{font-style:normal;color:var(--brand-ink);font-weight:700}
+  .nav-right{display:flex;align-items:center;gap:14px}
+  .lang{
+    display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:4px;background:var(--bg)
+  }
+  .lang button{
+    padding:5px 12px;border-radius:999px;font-size:13px;color:var(--ink-soft);font-weight:600;
+    transition:color .2s ease, background-color .2s ease;
+  }
+  .lang button[aria-pressed="true"]{
+    background:var(--ink);color:#fff;
+  }
+
+  /* ----------------- Hero ----------------- */
+  .hero{
+    position:relative;
+    padding:96px 0 64px;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:""; position:absolute; inset:-20% -10% auto auto;
+    width:780px;height:780px;border-radius:50%;
+    background:radial-gradient(closest-side, oklch(0.93 0.07 60 / .85), transparent 70%);
+    z-index:0; pointer-events:none;
+  }
+  .hero::after{
+    content:""; position:absolute; left:-180px; bottom:-260px;
+    width:560px;height:560px;border-radius:50%;
+    background:radial-gradient(closest-side, oklch(0.92 0.05 230 / .8), transparent 70%);
+    z-index:0; pointer-events:none;
+  }
+  .hero-grid{
+    position:relative;z-index:1;
+    display:grid;grid-template-columns: 1.18fr .82fr; gap:56px; align-items:center;
+  }
+  .hero-tag{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:6px 12px 6px 8px;border-radius:999px;
+    background:#fff;border:1px solid var(--line);
+    font-size:13px;color:var(--ink-soft);font-weight:600;
+    box-shadow:var(--shadow-1);
+  }
+  .hero-tag .dot{width:8px;height:8px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 4px color-mix(in oklch,var(--brand) 25%, transparent)}
+  h1.hero-title{
+    margin:18px 0 16px;
+    font-size:clamp(40px, 5.6vw, 78px);
+    line-height:1.02; letter-spacing:-0.035em; font-weight:800;
+    text-wrap:balance;
+  }
+  .hero-title .accent{color:var(--brand)}
+  .hero-sub{
+    font-size:clamp(16px, 1.45vw, 19px);
+    color:var(--ink-soft); max-width:54ch; line-height:1.6;
+    text-wrap:pretty;
+  }
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:13px 20px;border-radius:12px;font-weight:600;font-size:15px;
+    transition:transform .15s ease, background-color .2s ease, color .2s ease, border-color .2s ease;
+    border:1px solid transparent;
+    will-change:transform;
+  }
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--ink);color:#fff}
+  .btn-primary:hover{background:oklch(0.18 0.02 250)}
+  .btn-brand{background:var(--brand);color:#fff;box-shadow:0 10px 22px -12px oklch(0.55 0.18 55 / .55)}
+  .btn-brand:hover{background:oklch(0.66 0.180 55)}
+  .btn-ghost{background:#fff;border-color:var(--line);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--ink);background:#fff}
+  .btn .ar{transition:transform .25s cubic-bezier(.2,.7,.2,1)}
+  .btn:hover .ar{transform:translateX(3px)}
+
+  .hero-stats{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+    margin-top:40px;border:1px solid var(--line);border-radius:var(--r-md);
+    background:#fff;overflow:hidden;
+  }
+  .hero-stats .stat{padding:18px 20px;border-right:1px solid var(--line)}
+  .hero-stats .stat:last-child{border-right:0}
+  .stat .n{font-size:26px;font-weight:800;letter-spacing:-0.02em;color:var(--ink)}
+  .stat .n em{font-style:normal;color:var(--brand)}
+  .stat .l{font-size:13px;color:var(--ink-mute);margin-top:2px}
+
+  /* ----------------- Hero map ----------------- */
+  .map-card{
+    position:relative;background:#fff;border:1px solid var(--line);
+    border-radius:var(--r-xl);padding:18px;
+    box-shadow:var(--shadow-2);
+    overflow:hidden;
+  }
+  .map-card::before{
+    content:""; position:absolute; inset:0;
+    background:
+      radial-gradient(380px 200px at 80% 110%, oklch(0.94 0.06 60 / .55), transparent 70%),
+      radial-gradient(360px 220px at 0% 0%, oklch(0.94 0.05 230 / .6), transparent 70%);
+    pointer-events:none;
+  }
+  .map-card .label{
+    position:relative;display:flex;align-items:center;justify-content:space-between;
+    font-size:13px;color:var(--ink-mute);font-weight:600;letter-spacing:.02em;
+  }
+  .map-card .label .live{display:inline-flex;align-items:center;gap:6px}
+  .map-card .label .live::before{
+    content:"";width:7px;height:7px;border-radius:50%;background:oklch(0.6 0.16 145);
+    box-shadow:0 0 0 4px oklch(0.6 0.16 145 / .25);
+    animation:pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.55}}
+  .map-svg{display:block;width:100%;height:auto;margin-top:6px;position:relative}
+  .map-legend{
+    position:relative;
+    display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;
+  }
+  .chip{
+    font-size:12px;color:var(--ink-soft);padding:5px 10px;border-radius:999px;
+    background:var(--bg-2);border:1px solid var(--line);
+  }
+
+  @media (max-width:980px){
+    .hero{padding:64px 0 40px}
+    .hero-grid{grid-template-columns:1fr;gap:32px}
+    .hero-stats{grid-template-columns:repeat(3,1fr)}
+  }
+  @media (max-width:560px){
+    .hero-stats{grid-template-columns:1fr;}
+    .hero-stats .stat{border-right:0;border-bottom:1px solid var(--line)}
+    .hero-stats .stat:last-child{border-bottom:0}
+  }
+
+  /* ----------------- Section ----------------- */
+  section{padding:80px 0}
+  @media (max-width:640px){ section{padding:56px 0} }
+  .sec-title{font-size:clamp(26px, 3vw, 40px);font-weight:800;letter-spacing:-0.025em;margin:0 0 10px;text-wrap:balance}
+  .sec-lead{color:var(--ink-soft);font-size:17px;line-height:1.7;max-width:68ch;text-wrap:pretty}
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;margin-bottom:40px;flex-wrap:wrap}
+  .sec-head .lead{max-width:60ch}
+  .sec-num{font-family:var(--font-mono);font-size:13px;color:var(--ink-mute);letter-spacing:.05em}
+
+  /* ----------------- Teams ----------------- */
+  .teams{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .team{
+    background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);
+    padding:26px 24px 24px;
+    transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+  }
+  .team:hover{transform:translateY(-3px);border-color:var(--line-2);box-shadow:var(--shadow-2)}
+  .team h3{margin:14px 0 8px;font-size:19px;font-weight:700;letter-spacing:-0.01em}
+  .team p{margin:0;color:var(--ink-soft);font-size:14.5px;line-height:1.65}
+  .team .ic{
+    width:42px;height:42px;border-radius:12px;display:grid;place-items:center;
+    background:var(--brand-soft);color:var(--brand-ink);
+  }
+  .team.t2 .ic{background:var(--accent-soft);color:oklch(0.40 0.13 230)}
+  .team.t3 .ic{background:oklch(0.94 0.06 145);color:oklch(0.45 0.13 145)}
+  .team .ic svg{width:20px;height:20px}
+  .team .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+  .team .chips span{
+    font-size:12px;color:var(--ink-soft);padding:4px 9px;border-radius:999px;
+    background:var(--bg-2);border:1px solid var(--line);
+  }
+  @media (max-width:880px){.teams{grid-template-columns:1fr}}
+
+  /* ----------------- Star tracks ----------------- */
+  .tracks{
+    background:#fff;border:1px solid var(--line);border-radius:var(--r-xl);overflow:hidden;
+  }
+  .track{
+    display:grid; grid-template-columns: 70px 1fr 220px 150px; gap:0;
+    align-items:center;
+    padding:22px 24px;
+    border-bottom:1px solid var(--line);
+    transition:background-color .25s ease;
+    position:relative;
+  }
+  .track:last-child{border-bottom:0}
+  .track:hover{background:color-mix(in oklch, var(--brand-soft) 38%, #fff)}
+  .track .n{font-family:var(--font-mono);font-size:14px;color:var(--ink-mute);font-weight:700;letter-spacing:.04em}
+  .track:hover .n{color:var(--brand-ink)}
+  .track .body h4{
+    margin:0 0 6px;font-size:17px;font-weight:700;letter-spacing:-0.01em;line-height:1.35
+  }
+  .track .hook{margin:0;color:var(--ink-soft);font-size:14px;line-height:1.55;max-width:60ch}
+  .track .tags{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+  .track .tags span{
+    font-size:11.5px;color:var(--ink-soft);padding:3px 8px;border-radius:6px;
+    background:var(--bg-2);border:1px solid var(--line);font-weight:500
+  }
+  .track .loc{font-size:13px;color:var(--ink-mute);font-weight:500;display:inline-flex;align-items:center;gap:6px}
+  .track .loc::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--brand);display:inline-block}
+  .track .apply{
+    justify-self:end;display:inline-flex;align-items:center;gap:6px;
+    padding:9px 14px;border-radius:10px;border:1px solid var(--line);
+    font-size:13.5px;font-weight:600;color:var(--ink);
+    transition:background-color .2s ease, border-color .2s ease, color .2s ease;
+    background:#fff;
+  }
+  .track .apply .ar{transition:transform .2s cubic-bezier(.2,.7,.2,1)}
+  .track:hover .apply{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .track:hover .apply .ar{transform:translate(3px,-3px)}
+
+  @media (max-width:1024px){
+    .track{grid-template-columns:48px 1fr 130px auto; gap:14px; padding:20px}
+    .track .tags{display:none}
+  }
+  @media (max-width:640px){
+    .track{grid-template-columns:36px 1fr auto; gap:12px; padding:18px 16px}
+    .track .loc{display:none}
+    .track .body h4{font-size:15.5px}
+    .track .hook{font-size:13px}
+    .track .apply{padding:8px 12px;font-size:13px}
+  }
+
+  /* ----------------- Who / Why ----------------- */
+  .ww{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:stretch}
+  .panel{
+    background:#fff;border:1px solid var(--line);border-radius:var(--r-xl);padding:32px;
+  }
+  .panel.dark{
+    background:linear-gradient(170deg, oklch(0.22 0.02 250), oklch(0.18 0.025 260));
+    color:#fff;border-color:transparent;
+  }
+  .panel.dark .sec-title{color:#fff}
+  .panel.dark .sec-lead, .panel.dark p{color:oklch(0.85 0.015 240)}
+  .panel h3{margin:0 0 18px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-mute);font-weight:700}
+  .panel.dark h3{color:oklch(0.78 0.04 60)}
+  .panel ul{list-style:none;margin:0;padding:0;display:grid;gap:18px}
+  .panel li{display:grid;grid-template-columns:36px 1fr;gap:14px;align-items:start}
+  .panel li .b{
+    width:36px;height:36px;border-radius:10px;
+    background:var(--brand-soft);color:var(--brand-ink);
+    display:grid;place-items:center;font-weight:800;font-size:14px;
+    font-family:var(--font-mono);
+  }
+  .panel.dark li .b{background:oklch(0.32 0.08 55);color:oklch(0.92 0.10 65)}
+  .panel li b{display:block;font-weight:700;font-size:15.5px;letter-spacing:-0.005em;margin-bottom:3px}
+  .panel li p{margin:0;font-size:14px;line-height:1.6;color:var(--ink-soft)}
+  .panel.dark li p{color:oklch(0.83 0.018 240)}
+
+  @media (max-width:960px){.ww{grid-template-columns:1fr}}
+
+  /* ----------------- CTA + QR ----------------- */
+  .cta{
+    background:
+      radial-gradient(600px 280px at 85% -10%, oklch(0.92 0.10 60 / .9), transparent 70%),
+      radial-gradient(500px 280px at -5% 110%, oklch(0.90 0.07 230 / .9), transparent 70%),
+      #fff;
+    border:1px solid var(--line); border-radius:var(--r-xl);
+    padding:48px;
+  }
+  .cta-row{display:grid;grid-template-columns:1fr auto;gap:36px;align-items:center}
+  .cta h2{margin:0 0 8px;font-size:clamp(24px,2.6vw,34px);font-weight:800;letter-spacing:-0.02em}
+  .cta p{margin:0;color:var(--ink-soft);font-size:16px;max-width:54ch;line-height:1.6}
+  .qrs{display:flex;gap:14px;flex-wrap:wrap}
+  .qr{
+    background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 12px 12px;
+    width:160px;text-align:center;box-shadow:var(--shadow-1);
+    display:flex;flex-direction:column;align-items:stretch
+  }
+  .qr img{border-radius:8px;width:136px;height:136px;margin:0 auto;object-fit:contain;background:#fff;display:block}
+  .qr .t{font-size:12.5px;color:var(--ink-soft);margin-top:10px;font-weight:600;letter-spacing:.02em;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .qr.brand{border-color:color-mix(in oklch, var(--brand) 50%, var(--line))}
+  .qr.brand .t{color:var(--brand-ink)}
+
+  @media (max-width:980px){.cta{padding:32px}.cta-row{grid-template-columns:1fr;gap:24px}.qrs{justify-content:flex-start;flex-wrap:wrap}}
+  @media (max-width:480px){.qr{width:calc(50% - 7px)}.qr img{width:100%;height:auto;aspect-ratio:1;max-width:160px}}
+
+  /* ----------------- Footer ----------------- */
+  footer{padding:42px 0 56px;border-top:1px solid var(--line);color:var(--ink-mute);font-size:13px;margin-top:40px}
+  footer .row{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center}
+  footer a:hover{color:var(--ink)}
+
+  /* ----------------- Motion ----------------- */
+  :root{
+    --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+    --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-out-expo:  cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .7s var(--ease-out-quint), transform .7s var(--ease-out-quint)}
+  .reveal.in{opacity:1;transform:none}
+  .stagger > *{opacity:0;transform:translateY(10px);transition:opacity .55s var(--ease-out-quart), transform .55s var(--ease-out-quart)}
+  .stagger.in > *{opacity:1;transform:none}
+  .stagger.in > *:nth-child(1){transition-delay:.02s}
+  .stagger.in > *:nth-child(2){transition-delay:.08s}
+  .stagger.in > *:nth-child(3){transition-delay:.14s}
+  .stagger.in > *:nth-child(4){transition-delay:.20s}
+  .stagger.in > *:nth-child(5){transition-delay:.26s}
+  .stagger.in > *:nth-child(6){transition-delay:.32s}
+  .stagger.in > *:nth-child(7){transition-delay:.38s}
+  .stagger.in > *:nth-child(8){transition-delay:.44s}
+
+  /* Hero: starfield canvas behind hero content */
+  .hero{position:relative;isolation:isolate}
+  .hero-canvas{
+    position:absolute; inset:0; width:100%; height:100%;
+    pointer-events:none; z-index:0; opacity:.85;
+    mask-image: radial-gradient(circle at 50% 40%, #000 55%, transparent 100%);
+    -webkit-mask-image: radial-gradient(circle at 50% 40%, #000 55%, transparent 100%);
+  }
+  .hero > .wrap{position:relative; z-index:1}
+  .hero::before, .hero::after{z-index:0}
+
+  /* hero-title: per-word reveal */
+  .hero-title .word{
+    display:inline-block; opacity:0; transform:translateY(0.6em);
+    transition: opacity .8s var(--ease-out-expo), transform .8s var(--ease-out-expo);
+    transition-delay: calc(var(--i, 0) * 70ms + 80ms);
+    will-change: transform;
+  }
+  .hero-title.in .word{opacity:1; transform:none}
+
+  /* gentle parallax drift on hero glow blobs */
+  @keyframes heroDrift1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(18px,-12px)} }
+  @keyframes heroDrift2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-22px,14px)} }
+  .hero::before{ animation: heroDrift1 18s ease-in-out infinite }
+  .hero::after { animation: heroDrift2 22s ease-in-out infinite }
+
+  /* Brand mark gentle pulse */
+  @keyframes markPulse {
+    0%,100%{ filter: drop-shadow(0 0 0 transparent) }
+    50%   { filter: drop-shadow(0 0 6px color-mix(in oklch, var(--brand) 60%, transparent)) }
+  }
+  .brand-mark svg{ animation: markPulse 4.2s ease-in-out infinite }
+
+  /* hero-tag dot gentle ring */
+  @keyframes tagRing {
+    0%   { box-shadow: 0 0 0 0 color-mix(in oklch, var(--brand) 35%, transparent) }
+    70%  { box-shadow: 0 0 0 10px color-mix(in oklch, var(--brand) 0%, transparent) }
+    100% { box-shadow: 0 0 0 0 transparent }
+  }
+  .hero-tag .dot{ animation: tagRing 2.4s var(--ease-out-quart) infinite }
+
+  /* Buttons: shine sweep on hover */
+  .btn{position:relative;overflow:hidden;isolation:isolate}
+  .btn::after{
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background: linear-gradient(115deg, transparent 30%, color-mix(in oklch, #fff 70%, transparent) 50%, transparent 70%);
+    transform: translateX(-120%); transition: transform .9s var(--ease-out-quint);
+    mix-blend-mode: overlay;
+  }
+  .btn:hover::after{ transform: translateX(120%) }
+
+  /* Cells / cards: lift on hover with spring */
+  .bg-cell, .am-card, .track, .qr, .team-card, .layer{
+    transition: transform .35s var(--ease-out-quart), box-shadow .35s var(--ease-out-quart), border-color .35s var(--ease-out-quart);
+  }
+  .bg-cell:hover, .am-card:hover, .qr:hover{ transform: translateY(-3px) }
+
+  /* count-up nums get a brief pop when revealed */
+  @keyframes numPop {
+    0%   { transform: translateY(8px) scale(.97); opacity:0 }
+    60%  { transform: translateY(0)   scale(1.02); opacity:1 }
+    100% { transform: none; opacity:1 }
+  }
+  .aidc-nums.in .v{ animation: numPop .8s var(--ease-out-quint) both }
+  .aidc-nums.in .n:nth-child(1) .v{ animation-delay: .05s }
+  .aidc-nums.in .n:nth-child(2) .v{ animation-delay: .15s }
+  .aidc-nums.in .n:nth-child(3) .v{ animation-delay: .25s }
+  .aidc-nums.in .n:nth-child(4) .v{ animation-delay: .35s }
+
+  /* Map nodes pulse */
+  @keyframes nodePulse {
+    0%,100% { opacity:.55; transform:scale(1) }
+    50%     { opacity:1;   transform:scale(1.18) }
+  }
+  .map-card svg .node-halo{ transform-origin: center; transform-box: fill-box; animation: nodePulse 2.6s var(--ease-out-quart) infinite }
+  .map-card svg .node-halo:nth-of-type(2){ animation-delay:.4s }
+  .map-card svg .node-halo:nth-of-type(3){ animation-delay:.8s }
+  .map-card svg .node-halo:nth-of-type(4){ animation-delay:1.2s }
+  .map-card svg .node-halo:nth-of-type(5){ animation-delay:1.6s }
+  /* Route dash-flow */
+  @keyframes dashFlow { to { stroke-dashoffset: -120 } }
+  .map-card svg .route{ stroke-dasharray: 6 8; animation: dashFlow 8s linear infinite }
+
+  /* Track row arrow nudge on hover (already exists in older block, ensure spring) */
+  .track:hover{ transform: translateY(-1px) }
+
+  /* Track-specific stagger: lateral slide instead of vertical */
+  .tracks.stagger > .track{
+    opacity:0; transform: translateX(-16px);
+    transition: opacity .6s var(--ease-out-expo), transform .6s var(--ease-out-expo);
+  }
+  .tracks.stagger.in > .track{ opacity:1; transform:none }
+  .tracks.stagger.in > .track:nth-child(1){ transition-delay:.04s }
+  .tracks.stagger.in > .track:nth-child(2){ transition-delay:.09s }
+  .tracks.stagger.in > .track:nth-child(3){ transition-delay:.14s }
+  .tracks.stagger.in > .track:nth-child(4){ transition-delay:.19s }
+  .tracks.stagger.in > .track:nth-child(5){ transition-delay:.24s }
+  .tracks.stagger.in > .track:nth-child(6){ transition-delay:.29s }
+  .tracks.stagger.in > .track:nth-child(7){ transition-delay:.34s }
+  .tracks.stagger.in > .track:nth-child(8){ transition-delay:.39s }
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal,.stagger>*{opacity:1!important;transform:none!important;transition:none!important}
+    .hero-title .word{opacity:1!important;transform:none!important;transition:none!important}
+    .hero::before,.hero::after,.brand-mark svg,.hero-tag .dot,
+    .map-card svg .node-halo,.map-card svg .route,.btn::after,.aidc-nums.in .v{
+      animation:none!important; transition:none!important;
+    }
+    .hero-canvas{ display:none }
+    .map-card .label .live::before{animation:none}
+  }
+
+  /* hidden state for lang */
+  [data-lang]{display:none}
+  html[lang="zh-CN"] [data-lang="zh"]{display:initial}
+  html[lang="en"] [data-lang="en"]{display:initial}
+  /* inline variants */
+  .ilbl[data-lang="zh"], .ilbl[data-lang="en"]{display:none}
+  html[lang="zh-CN"] .ilbl[data-lang="zh"]{display:inline}
+  html[lang="en"] .ilbl[data-lang="en"]{display:inline}
+
+  /* ----------------- AIDC at a Glance ----------------- */
+  .glance{display:grid;grid-template-columns:1fr 1.05fr;gap:24px;align-items:stretch}
+  .glance .left, .glance .right{
+    background:#fff;border:1px solid var(--line);border-radius:var(--r-xl);padding:30px;
+  }
+  .glance .left{background:linear-gradient(165deg, #fff 0%, oklch(0.965 0.025 60) 100%)}
+  .glance .ticker{
+    display:inline-flex;align-items:center;gap:10px;padding:5px 12px;border-radius:999px;
+    background:#fff;border:1px solid var(--line);font-family:var(--font-mono);font-size:12px;color:var(--ink-soft);
+  }
+  .glance .ticker em{font-style:normal;color:var(--brand-ink);font-weight:700}
+  .glance h3{margin:18px 0 10px;font-size:clamp(20px,2.1vw,26px);font-weight:800;letter-spacing:-0.02em;text-wrap:balance}
+  .glance p{margin:0;color:var(--ink-soft);font-size:15px;line-height:1.7;max-width:46ch}
+  .brands{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+  .brand-pill{
+    display:flex;align-items:center;gap:10px;padding:12px;border-radius:10px;
+    background:#fff;border:1px solid var(--line);font-size:13px;font-weight:700;color:var(--ink);
+    transition:border-color .2s ease, transform .2s ease;
+  }
+  .brand-pill:hover{border-color:var(--brand);transform:translateY(-2px)}
+  .brand-pill .sw{width:10px;height:10px;border-radius:3px;flex:none}
+  .brand-pill .meta{font-size:11px;color:var(--ink-mute);font-weight:500;display:block;letter-spacing:.02em}
+
+  .right h3{margin:0 0 18px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-mute);font-weight:700}
+  .ranks{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  .rank{
+    display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center;
+    padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:var(--bg);
+  }
+  .rank .num{font-size:28px;font-weight:800;letter-spacing:-0.04em;color:var(--brand);font-family:var(--font-en);line-height:1}
+  .rank .where{font-size:14px;font-weight:700;color:var(--ink);line-height:1.35}
+  .rank .where small{display:block;font-size:11.5px;color:var(--ink-mute);font-weight:500;margin-top:3px;letter-spacing:.02em}
+  @media (max-width:920px){.glance{grid-template-columns:1fr}.brands{grid-template-columns:repeat(2,1fr)}.ranks{grid-template-columns:1fr}}
+
+  /* ----------------- By the numbers ----------------- */
+  .metrics{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+    background:linear-gradient(170deg, oklch(0.22 0.02 250), oklch(0.18 0.025 260));
+    color:#fff;border-radius:var(--r-xl);overflow:hidden;
+  }
+  .metric{
+    padding:32px 24px;border-right:1px solid oklch(0.32 0.02 250);
+    display:flex;flex-direction:column;justify-content:space-between;gap:14px;min-height:180px;
+    position:relative;overflow:hidden;
+  }
+  .metric:last-child{border-right:0}
+  .metric::before{
+    content:"";position:absolute;inset:auto -20% -50% auto;width:200px;height:200px;border-radius:50%;
+    background:radial-gradient(closest-side, oklch(0.65 0.16 55 / .25), transparent 70%);pointer-events:none;
+  }
+  .metric .big{
+    font-family:var(--font-en);font-size:clamp(40px,4.4vw,58px);font-weight:800;
+    letter-spacing:-0.04em;line-height:.95;color:#fff;
+  }
+  .metric .big sup{font-size:.5em;vertical-align:super;color:oklch(0.85 0.10 55);font-weight:700;letter-spacing:0}
+  .metric .label{font-size:13px;color:oklch(0.78 0.018 240);line-height:1.55;font-weight:500}
+  .metric .label b{display:block;color:#fff;font-size:14px;font-weight:700;margin-bottom:4px;letter-spacing:-0.01em}
+  @media (max-width:980px){.metrics{grid-template-columns:repeat(2,1fr)}.metric:nth-child(2),.metric:nth-child(4){border-right:0}.metric:nth-child(1),.metric:nth-child(2){border-bottom:1px solid oklch(0.32 0.02 250)}}
+  @media (max-width:540px){.metrics{grid-template-columns:1fr}.metric{border-right:0!important;border-bottom:1px solid oklch(0.32 0.02 250)}.metric:last-child{border-bottom:0}}
+
+  /* ----------------- Business models ----------------- */
+  .bizmodels{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .bm{
+    background:#fff;border:1px solid var(--line);border-radius:var(--r-xl);padding:26px;
+    display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden;
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .bm:hover{transform:translateY(-3px);box-shadow:var(--shadow-2)}
+  .bm::before{content:"";position:absolute;top:0;left:0;right:0;height:4px}
+  .bm.bm1::before{background:linear-gradient(90deg, oklch(0.74 0.18 55), oklch(0.78 0.13 80))}
+  .bm.bm2::before{background:linear-gradient(90deg, oklch(0.62 0.14 230), oklch(0.66 0.13 200))}
+  .bm.bm3::before{background:linear-gradient(90deg, oklch(0.58 0.13 145), oklch(0.62 0.13 175))}
+  .bm .lbl{font-family:var(--font-mono);font-size:12px;color:var(--ink-mute);letter-spacing:.06em}
+  .bm h4{margin:0;font-size:18px;font-weight:800;letter-spacing:-0.015em;line-height:1.3}
+  .bm p{margin:0;color:var(--ink-soft);font-size:14px;line-height:1.65}
+  .bm .arrow{
+    display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:10px;
+    background:var(--bg-2);font-size:13px;color:var(--ink-soft);font-weight:600;flex-wrap:wrap;
+  }
+  .bm .arrow b{color:var(--ink);font-weight:700}
+  .bm .arrow .ico{color:var(--brand);font-weight:800}
+  @media (max-width:980px){.bizmodels{grid-template-columns:1fr}}
+
+  /* ----------------- AI Stack ----------------- */
+  .aistack{background:#fff;border:1px solid var(--line);border-radius:var(--r-xl);overflow:hidden}
+  .aistack-head{
+    padding:26px 30px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:24px;
+    border-bottom:1px solid var(--line);
+    background:linear-gradient(95deg, oklch(0.97 0.012 240), oklch(0.96 0.030 60));
+  }
+  .aistack-head h3{margin:0;font-size:21px;font-weight:800;letter-spacing:-0.02em}
+  .aistack-head p{margin:6px 0 0;color:var(--ink-soft);font-size:14.5px;line-height:1.6;max-width:62ch}
+  .aistack-tag{
+    font-family:var(--font-mono);font-size:11.5px;color:var(--brand-ink);
+    padding:6px 10px;border-radius:6px;background:var(--brand-soft);font-weight:700;letter-spacing:.06em;white-space:nowrap;
+  }
+  .layers{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0}
+  .layer{padding:26px;border-right:1px solid var(--line)}
+  .layer:last-child{border-right:0}
+  .layer .top{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .layer .top .pip{
+    width:28px;height:28px;border-radius:8px;display:grid;place-items:center;
+    background:var(--brand-soft);color:var(--brand-ink);font-family:var(--font-mono);font-size:12px;font-weight:800;
+  }
+  .layer.l2 .top .pip{background:var(--accent-soft);color:oklch(0.40 0.13 230)}
+  .layer.l3 .top .pip{background:oklch(0.94 0.06 145);color:oklch(0.45 0.13 145)}
+  .layer h4{margin:0;font-size:15.5px;font-weight:700;letter-spacing:-0.01em}
+  .layer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+  .layer li{
+    display:grid;grid-template-columns:auto 1fr;gap:8px;align-items:start;
+    font-size:13.5px;color:var(--ink-soft);line-height:1.5;
+  }
+  .layer li::before{
+    content:"";display:block;width:4px;height:4px;border-radius:50%;
+    background:var(--brand);margin-top:8px;
+  }
+  .layer.l2 li::before{background:var(--accent)}
+  .layer.l3 li::before{background:oklch(0.55 0.13 145)}
+  .layer .base{
+    margin-top:14px;padding:10px 12px;border-radius:10px;background:var(--bg-2);
+    font-size:12.5px;color:var(--ink-soft);line-height:1.55;font-weight:500;
+  }
+  .layer .base b{color:var(--ink);font-weight:700;display:block;margin-bottom:2px;font-size:13px}
+  @media (max-width:880px){.aistack-head{grid-template-columns:1fr}.layers{grid-template-columns:1fr}.layer{border-right:0;border-bottom:1px solid var(--line)}.layer:last-child{border-bottom:0}}
+
+  /* ----------------- About AIDC (Alibaba × AIDC Map) ----------------- */
+  #about{background:linear-gradient(180deg, var(--bg-2) 0%, var(--bg) 100%)}
+  .about-head{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:end;margin-bottom:36px}
+  .about-head .lead{font-size:16.5px;color:var(--ink-soft);line-height:1.65;max-width:54ch}
+  .about-head .lead em{font-style:normal;color:var(--brand);font-weight:600}
+  @media (max-width:880px){.about-head{grid-template-columns:1fr;gap:18px;align-items:start}}
+
+  /* Alibaba Group → AIDC tree */
+  .aligroup{
+    background:#fff;border:1px solid var(--line);border-radius:var(--r-xl);
+    padding:28px 28px 22px;box-shadow:var(--shadow-1);margin-bottom:24px;
+  }
+  .aligroup .top{
+    display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:14px;
+    background:linear-gradient(90deg, oklch(0.97 0.04 60) 0%, oklch(0.97 0.03 230) 100%);
+    border:1px solid var(--line);margin-bottom:18px;flex-wrap:wrap
+  }
+  .aligroup .top .badge{
+    font-size:11.5px;font-weight:700;letter-spacing:.06em;color:var(--brand-ink);
+    background:#fff;border:1px solid color-mix(in oklch,var(--brand) 35%, var(--line));
+    padding:5px 9px;border-radius:999px;text-transform:uppercase;white-space:nowrap
+  }
+  .aligroup .top h3{margin:0;font-size:17px;font-weight:800;letter-spacing:-0.01em}
+  .aligroup .top p{margin:0;font-size:13px;color:var(--ink-soft);flex:1;min-width:200px}
+  .bg-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+  .bg-cell{
+    border:1px solid var(--line);border-radius:12px;padding:12px 12px 13px;background:#fff;
+    display:flex;flex-direction:column;gap:6px;transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+    min-height:118px
+  }
+  .bg-cell:hover{transform:translateY(-2px);box-shadow:var(--shadow-1);border-color:color-mix(in oklch,var(--ink) 18%, var(--line))}
+  .bg-cell.is-self{border-color:color-mix(in oklch,var(--brand) 55%, var(--line));background:linear-gradient(180deg,#fff 0%, oklch(0.98 0.04 60) 100%);box-shadow:var(--shadow-1)}
+  .bg-cell .nm{font-size:13.5px;font-weight:800;letter-spacing:-0.005em;color:var(--ink);line-height:1.3}
+  .bg-cell.is-self .nm{color:var(--brand-ink)}
+  .bg-cell .desc{font-size:11.5px;color:var(--ink-mute);line-height:1.45}
+  .bg-cell .brands{display:flex;flex-wrap:wrap;gap:4px;margin-top:auto}
+  .bg-cell .brands span{
+    font-size:10.5px;font-weight:600;color:var(--ink-soft);
+    background:var(--bg-2);border:1px solid var(--line);border-radius:6px;padding:2px 6px;
+    letter-spacing:.01em
+  }
+  .bg-cell.is-self .brands span{background:#fff;border-color:color-mix(in oklch,var(--brand) 25%, var(--line));color:var(--brand-ink)}
+  @media (max-width:980px){.bg-grid{grid-template-columns:repeat(3,1fr)}}
+  @media (max-width:560px){.bg-grid{grid-template-columns:repeat(2,1fr)}}
+
+  /* AIDC business model layers */
+  .aidc-models{
+    background:#fff;border:1px solid var(--line);border-radius:var(--r-xl);padding:28px;box-shadow:var(--shadow-1);
+    margin-bottom:24px
+  }
+  .am-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .am-card{
+    border:1px solid var(--line);border-radius:14px;padding:18px 18px 16px;background:var(--bg-2);
+    display:flex;flex-direction:column;gap:8px;position:relative;overflow:hidden
+  }
+  .am-card .tag{
+    font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--ink-mute);text-transform:uppercase
+  }
+  .am-card h4{margin:0;font-size:15.5px;font-weight:800;letter-spacing:-0.01em;color:var(--ink)}
+  .am-card p{margin:0;font-size:13px;color:var(--ink-soft);line-height:1.55}
+  .am-card .ex{
+    margin-top:8px;display:flex;flex-wrap:wrap;gap:5px
+  }
+  .am-card .ex span{
+    font-size:10.5px;font-weight:600;background:#fff;border:1px solid var(--line);
+    color:var(--ink-soft);border-radius:6px;padding:2px 7px
+  }
+  .am-card.b1{background:linear-gradient(180deg,#fff 0%, oklch(0.98 0.04 60) 100%);border-color:color-mix(in oklch,var(--brand) 30%, var(--line))}
+  .am-card.b2{background:linear-gradient(180deg,#fff 0%, oklch(0.97 0.04 230) 100%);border-color:color-mix(in oklch,var(--accent) 30%, var(--line))}
+  .am-card.b3{background:linear-gradient(180deg,#fff 0%, oklch(0.97 0.04 145) 100%);border-color:color-mix(in oklch,oklch(0.55 0.13 145) 30%, var(--line))}
+  @media (max-width:880px){.am-row{grid-template-columns:1fr}}
+
+  /* AIDC numbers strip */
+  .aidc-nums{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+    border:1px solid var(--line);border-radius:var(--r-xl);
+    background:#fff;overflow:hidden;margin-bottom:24px;box-shadow:var(--shadow-1)
+  }
+  .aidc-nums .n{
+    padding:22px 22px;border-right:1px solid var(--line);
+    display:flex;flex-direction:column;gap:4px
+  }
+  .aidc-nums .n:last-child{border-right:0}
+  .aidc-nums .v{
+    font-family:'Inter Tight','Inter',-apple-system,system-ui,sans-serif;
+    font-size:clamp(26px,3vw,38px);font-weight:800;letter-spacing:-0.025em;color:var(--ink);line-height:1
+  }
+  .aidc-nums .v .u{font-size:.6em;color:var(--brand);margin-left:2px;font-weight:700}
+  .aidc-nums .l{font-size:12.5px;color:var(--ink-soft);font-weight:600}
+  .aidc-nums .x{font-size:11.5px;color:var(--ink-mute);line-height:1.4}
+  @media (max-width:880px){.aidc-nums{grid-template-columns:repeat(2,1fr)}.aidc-nums .n{border-bottom:1px solid var(--line)}.aidc-nums .n:nth-child(2){border-right:0}.aidc-nums .n:nth-child(3),.aidc-nums .n:nth-child(4){border-bottom:0}}
+  @media (max-width:480px){.aidc-nums{grid-template-columns:1fr}.aidc-nums .n{border-right:0}}
+
+  /* Why this matters callout */
+  .why-this{
+    display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;
+    border:1px solid color-mix(in oklch,var(--brand) 22%, var(--line));
+    border-radius:14px;padding:18px 22px;
+    background:linear-gradient(90deg, oklch(0.98 0.04 60) 0%, #fff 60%);
+  }
+  .why-this .ico{
+    width:44px;height:44px;border-radius:50%;display:grid;place-items:center;
+    background:#fff;border:1px solid color-mix(in oklch,var(--brand) 35%, var(--line));color:var(--brand);
+    flex-shrink:0
+  }
+  .why-this p{margin:0;font-size:14px;color:var(--ink-soft);line-height:1.6}
+  .why-this p b{color:var(--ink);font-weight:700}
+  @media (max-width:560px){.why-this{grid-template-columns:1fr;text-align:left}.why-this .ico{width:38px;height:38px}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-row">
+    <a href="#top" class="brand" aria-label="AIDC Star">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2.5l2.7 6.05 6.6.55-5 4.35 1.5 6.55L12 16.6 6.2 19.95l1.5-6.55-5-4.35 6.6-.55L12 2.5z" fill="currentColor"/></svg>
+      </span>
+      <span class="brand-name">AIDC · <em>Star</em></span>
+    </a>
+    <div class="nav-right">
+      <a href="#about" class="btn btn-ghost" style="padding:8px 14px;font-size:13.5px">
+        <span data-lang="zh">关于 AIDC</span><span data-lang="en">About AIDC</span>
+      </a>
+      <a href="#tracks" class="btn btn-ghost" style="padding:8px 14px;font-size:13.5px">
+        <span data-lang="zh">8 大课题</span><span data-lang="en">8 Tracks</span>
+      </a>
+      <div class="lang" role="group" aria-label="Language switch">
+        <button data-set-lang="zh-CN" aria-pressed="true">中</button>
+        <button data-set-lang="en"   aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="hero-tag reveal">
+        <span class="dot" aria-hidden="true"></span>
+        <span data-lang="zh">Alibaba International Digital Commerce · 2026 Star 招募</span>
+        <span data-lang="en">Alibaba International Digital Commerce · Star Recruiting 2026</span>
+      </span>
+      <h1 class="hero-title reveal">
+        <span data-lang="zh">用 AI 重塑<br/>全球电商的<span class="accent">下一个十年</span>。</span>
+        <span data-lang="en">Build the next era of <span class="accent">global commerce AI</span>.</span>
+      </h1>
+      <p class="hero-sub reveal">
+        <span data-lang="zh">服务 200+ 国家、亿级流量、8 大 Star 课题。给愿意定义方向、啃硬课题、追求长期主义的优秀算法与工程人才（博士 / 硕士均可）。</span>
+        <span data-lang="en">200+ countries, billions of users, 8 frontier tracks. For top researchers and engineers (PhD or Master's) ready to define directions and tackle the hardest problems.</span>
+      </p>
+      <div class="hero-ctas reveal">
+        <a href="#tracks" class="btn btn-brand">
+          <span data-lang="zh">查看 8 大课题</span><span data-lang="en">View 8 tracks</span>
+          <span class="ar" aria-hidden="true">↓</span>
+        </a>
+        <a href="#contact" class="btn btn-ghost">
+          <span data-lang="zh">直接联系我们</span><span data-lang="en">Talk to us</span>
+          <span class="ar" aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <div class="hero-stats reveal" aria-label="key numbers">
+        <div class="stat"><div class="n"><em>200+</em></div><div class="l"><span data-lang="zh">国家与地区</span><span data-lang="en">Countries & regions</span></div></div>
+        <div class="stat"><div class="n"><em>8</em></div><div class="l"><span data-lang="zh">Star 课题方向</span><span data-lang="en">Star research tracks</span></div></div>
+        <div class="stat"><div class="n"><em>36</em></div><div class="l"><span data-lang="zh">月成长路径</span><span data-lang="en">-month growth path</span></div></div>
+      </div>
+    </div>
+
+    <div class="map-card reveal" aria-hidden="false">
+      <div class="label">
+        <span><span data-lang="zh">全球业务版图</span><span data-lang="en">Global footprint</span></span>
+        <span class="live"><span data-lang="zh">实时在线</span><span data-lang="en">live</span></span>
+      </div>
+      <svg class="map-svg" viewBox="0 0 460 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Global footprint map">
+        <!-- subtle dotted grid -->
+        <defs>
+          <pattern id="dots" x="0" y="0" width="14" height="14" patternUnits="userSpaceOnUse">
+            <circle cx="1.2" cy="1.2" r="1" fill="oklch(0.86 0.01 240)" />
+          </pattern>
+          <linearGradient id="route" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="oklch(0.70 0.18 55)" stop-opacity=".0"/>
+            <stop offset=".5" stop-color="oklch(0.70 0.18 55)" stop-opacity=".75"/>
+            <stop offset="1" stop-color="oklch(0.62 0.14 230)" stop-opacity=".0"/>
+          </linearGradient>
+          <radialGradient id="node" cx="50%" cy="50%" r="50%">
+            <stop offset="0" stop-color="oklch(0.70 0.18 55)" stop-opacity="1"/>
+            <stop offset="1" stop-color="oklch(0.70 0.18 55)" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <rect x="0" y="0" width="460" height="280" fill="url(#dots)" />
+        <!-- abstract continents -->
+        <g fill="oklch(0.93 0.018 240)" stroke="oklch(0.84 0.012 240)" stroke-width="1">
+          <path d="M30,80 C60,60 110,55 150,72 C188,87 200,110 180,135 C160,160 110,168 78,150 C50,135 18,110 30,80 Z"/>
+          <path d="M170,90 C220,70 280,75 320,95 C360,115 360,150 320,168 C275,188 215,182 188,160 C168,145 152,108 170,90 Z"/>
+          <path d="M330,108 C370,98 410,108 430,128 C448,148 442,178 412,190 C378,202 340,188 326,168 C316,152 312,118 330,108 Z"/>
+          <path d="M260,180 C300,170 340,180 350,200 C358,220 332,238 300,232 C268,226 244,206 260,180 Z"/>
+        </g>
+        <!-- routes -->
+        <g fill="none" stroke="url(#route)" stroke-width="1.4" stroke-linecap="round">
+          <path class="route" d="M85,118 Q170,40 250,118"/>
+          <path class="route" d="M250,118 Q320,60 386,148"/>
+          <path class="route" d="M250,118 Q280,200 300,210"/>
+          <path class="route" d="M85,118 Q160,200 300,210"/>
+          <path class="route" d="M386,148 Q380,180 300,210"/>
+        </g>
+        <!-- nodes -->
+        <g>
+          <g transform="translate(85,118)"><circle class="node-halo" r="12" fill="url(#node)"/><circle r="4" fill="oklch(0.70 0.18 55)"/><text x="10" y="-8" font-size="10" fill="oklch(0.30 0.02 250)" font-weight="600">Hangzhou</text></g>
+          <g transform="translate(250,118)"><circle class="node-halo" r="10" fill="url(#node)"/><circle r="3.5" fill="oklch(0.62 0.14 230)"/><text x="9" y="-6" font-size="10" fill="oklch(0.30 0.02 250)" font-weight="600">Dubai</text></g>
+          <g transform="translate(386,148)"><circle class="node-halo" r="10" fill="url(#node)"/><circle r="3.5" fill="oklch(0.62 0.14 230)"/><text x="-50" y="-6" font-size="10" fill="oklch(0.30 0.02 250)" font-weight="600">São Paulo</text></g>
+          <g transform="translate(300,210)"><circle class="node-halo" r="10" fill="url(#node)"/><circle r="3.5" fill="oklch(0.62 0.14 230)"/><text x="9" y="14" font-size="10" fill="oklch(0.30 0.02 250)" font-weight="600">Singapore</text></g>
+          <g transform="translate(160,178)"><circle class="node-halo" r="8" fill="url(#node)"/><circle r="3" fill="oklch(0.62 0.14 230)"/><text x="-32" y="18" font-size="10" fill="oklch(0.30 0.02 250)" font-weight="600">Madrid</text></g>
+        </g>
+      </svg>
+      <div class="map-legend">
+        <span class="chip">AliExpress</span>
+        <span class="chip">Lazada</span>
+        <span class="chip">Daraz</span>
+        <span class="chip">Miravia</span>
+        <span class="chip">Gmarket</span>
+        <span class="chip">Taobao Overseas</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT AIDC -->
+<section id="about">
+  <div class="wrap">
+    <div class="about-head reveal">
+      <div>
+        <div class="sec-num">— 01 / About AIDC</div>
+        <h2 class="sec-title">
+          <span data-lang="zh">从阿里集团到 AIDC：一张 <em style="font-style:normal;color:var(--brand)">真实在跑</em> 的全球化业务图谱。</span>
+          <span data-lang="en">From Alibaba Group to AIDC: a real, running map of global commerce.</span>
+        </h2>
+      </div>
+      <p class="lead">
+        <span data-lang="zh"><em>AIDC</em>（Alibaba International Digital Commerce Group）承担"全球数字商业"使命——通过 AI 与数字技术驱动，让世界各地的中小商家"<em>从本地到全球</em>"无缝跨越。</span>
+        <span data-lang="en"><em>AIDC</em> (Alibaba International Digital Commerce Group) carries the "global digital commerce" mission — using AI and digital technology to help SMEs everywhere go <em>from local to global</em>, seamlessly.</span>
+      </p>
+    </div>
+
+    <!-- Alibaba Group six business groups -->
+    <div class="aligroup reveal">
+      <div class="bg-grid">
+        <div class="bg-cell">
+          <div class="nm"><span data-lang="zh">淘天集团</span><span data-lang="en">Taobao &amp; Tmall</span></div>
+          <div class="desc"><span data-lang="zh">中国零售大盘</span><span data-lang="en">China retail core</span></div>
+          <div class="brands"><span>Taobao</span><span>Tmall</span></div>
+        </div>
+        <div class="bg-cell is-self">
+          <div class="nm">AIDC <span style="color:var(--ink-mute);font-weight:600;font-size:11px">★</span></div>
+          <div class="desc"><span data-lang="zh">国际数字商业</span><span data-lang="en">International digital commerce</span></div>
+          <div class="brands"><span>AliExpress</span><span>Lazada</span><span>Trendyol</span><span>Daraz</span><span>Miravia</span><span>Alibaba.com</span></div>
+        </div>
+        <div class="bg-cell">
+          <div class="nm"><span data-lang="zh">云智能</span><span data-lang="en">Cloud Intelligence</span></div>
+          <div class="desc"><span data-lang="zh">云与 AI 基础设施</span><span data-lang="en">Cloud &amp; AI infra</span></div>
+          <div class="brands"><span>Aliyun</span><span>Qwen</span></div>
+        </div>
+        <div class="bg-cell">
+          <div class="nm"><span data-lang="zh">本地生活</span><span data-lang="en">Local Services</span></div>
+          <div class="desc"><span data-lang="zh">到家、到店与闪购</span><span data-lang="en">On-demand local &amp; quick commerce</span></div>
+          <div class="brands"><span>Ele.me</span><span>Amap</span><span data-lang="zh">闪购</span><span data-lang="en">Flash</span></div>
+        </div>
+        <div class="bg-cell">
+          <div class="nm"><span data-lang="zh">大文娱</span><span data-lang="en">Digital Media &amp; Ent.</span></div>
+          <div class="desc"><span data-lang="zh">视频与影业</span><span data-lang="en">Video &amp; entertainment</span></div>
+          <div class="brands"><span>Youku</span><span>Alibaba Pictures</span></div>
+        </div>
+        <div class="bg-cell">
+          <div class="nm"><span data-lang="zh">菜鸟</span><span data-lang="en">Cainiao</span></div>
+          <div class="desc"><span data-lang="zh">智能物流网络</span><span data-lang="en">Smart logistics</span></div>
+          <div class="brands"><span>Cainiao Network</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AIDC three business models -->
+    <div class="aidc-models reveal">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:18px">
+        <h3 style="margin:0;font-size:17px;font-weight:800;letter-spacing:-0.01em">
+          <span data-lang="zh">AIDC 业务三层结构 · 把"本地→全球"做成一张可拼接的网</span>
+          <span data-lang="en">AIDC's three layers · stitching "local-to-global" into one network</span>
+        </h3>
+        <span style="font-size:11.5px;font-weight:700;letter-spacing:.06em;color:var(--ink-mute);text-transform:uppercase">B2C · B2B · Tech Infra</span>
+      </div>
+      <div class="am-row">
+        <div class="am-card b1">
+          <span class="tag">Local · B2C</span>
+          <h4><span data-lang="zh">本地零售</span><span data-lang="en">Local Market B2C</span></h4>
+          <p>
+            <span data-lang="zh">在土耳其、韩国、东南亚、欧洲等地做"本地供给 → 本地消费者"，1P + 3P 双模式深耕本地履约。</span>
+            <span data-lang="en">Local supply to local consumers in Türkiye, Korea, SEA, Europe — 1P + 3P, with deep local fulfillment.</span>
+          </p>
+          <div class="ex"><span>Trendyol</span><span>Lazada</span><span>Daraz</span><span>Miravia</span><span>Gmarket</span></div>
+        </div>
+        <div class="am-card b2">
+          <span class="tag">Cross-border · B2C</span>
+          <h4><span data-lang="zh">跨境零售</span><span data-lang="en">Cross-border B2C</span></h4>
+          <p>
+            <span data-lang="zh">从中国 / 土耳其 / 韩国出发，把丰富、性价比的供给送到全球消费者面前。</span>
+            <span data-lang="en">From China, Türkiye, Korea — abundant, value-for-money supply reaching consumers worldwide.</span>
+          </p>
+          <div class="ex"><span>AliExpress</span><span>Tmall Taobao World</span></div>
+        </div>
+        <div class="am-card b3">
+          <span class="tag">Cross-border · B2B</span>
+          <h4><span data-lang="zh">跨境批发</span><span data-lang="en">Cross-border B2B</span></h4>
+          <p>
+            <span data-lang="zh">通过 alibaba.com 让中小批发商触达全球 SMEs，从中国到全球、土耳其到欧洲与中东、欧洲内部互联。</span>
+            <span data-lang="en">alibaba.com connects wholesalers to global SMEs — China→Global, Türkiye→EMEA, Intra-Europe.</span>
+          </p>
+          <div class="ex"><span>Alibaba.com</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AIDC numbers strip -->
+    <div class="aidc-nums reveal" aria-label="AIDC at a glance">
+      <div class="n">
+        <div class="v">200<span class="u">+</span></div>
+        <div class="l"><span data-lang="zh">覆盖国家与地区</span><span data-lang="en">Countries &amp; regions</span></div>
+        <div class="x"><span data-lang="zh">六大平台合计触达</span><span data-lang="en">Across the six platforms</span></div>
+      </div>
+      <div class="n">
+        <div class="v">Top 5</div>
+        <div class="l"><span data-lang="zh">41 个国家电商 App</span><span data-lang="en">in 41 countries</span></div>
+        <div class="x"><span data-lang="zh">欧洲主要国家 / 土耳其 / 韩国 / 东南亚 / 拉美等地榜首</span><span data-lang="en">#1 in Türkiye, Korea, SEA, LATAM &amp; major EU markets</span></div>
+      </div>
+      <div class="n">
+        <div class="v">2–3<span class="u" style="font-size:.5em"> days</span></div>
+        <div class="l"><span data-lang="zh">本地履约时效</span><span data-lang="en">Local fulfillment SLA</span></div>
+        <div class="x"><span data-lang="zh">10+1 海外仓 + 中国 / 土耳其 5 / 5 全球中央仓</span><span data-lang="en">10+1 overseas warehouses + 5/5 central hubs in CN &amp; TR</span></div>
+      </div>
+      <div class="n">
+        <div class="v">7M<span class="u">+</span></div>
+        <div class="l"><span data-lang="zh">商家与上亿商品</span><span data-lang="en">Merchants &amp; 100M+ SKUs</span></div>
+        <div class="x"><span data-lang="zh">Trendyol 30W / Lazada 220W / AliExpress 30W / Alibaba.com 20W / 淘天海外 400W</span><span data-lang="en">Trendyol 300K · Lazada 2.2M · AliExpress 300K · Alibaba.com 200K · TT-World 4M</span></div>
+      </div>
+    </div>
+
+    <!-- Why this matters for candidates -->
+    <div class="why-this reveal">
+      <div class="ico" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="M12 18v4"/><path d="m4.93 4.93 2.83 2.83"/><path d="m16.24 16.24 2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="m4.93 19.07 2.83-2.83"/><path d="m16.24 7.76 2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg>
+      </div>
+      <p>
+        <span data-lang="zh"><b>为什么这件事和你有关：</b>当你写下一个搜索 / 推荐 / Agent / 多模态 LLM 的算法，它真实跑在 200+ 国家、十几种小语种、上亿商品和数亿消费者上——业务规模决定了课题的"硬度"，而不是反过来。</span>
+        <span data-lang="en"><b>Why this matters to you:</b> any search / recsys / agent / multimodal LLM you ship runs across 200+ countries, dozens of long-tail languages, hundreds of millions of SKUs and consumers. The business scale defines how hard the problems are — not the other way around.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE ARE / TEAMS -->
+<section id="teams">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <div class="sec-num">— 02 / Teams</div>
+        <h2 class="sec-title">
+          <span data-lang="zh">三支团队，一条全栈：从算法到 Agent，再到底层基建。</span>
+          <span data-lang="en">Three teams, one full stack — from algorithms to Agents to infrastructure.</span>
+        </h2>
+        <p class="sec-lead">
+          <span data-lang="zh">阿里国际技术，是跨境电商领域 AI 应用最深入、最广泛的团队之一，支撑 AliExpress、Lazada、Daraz、淘宝海外等平台。</span>
+          <span data-lang="en">AIDC is one of the most deeply applied AI organizations in global e-commerce, powering AliExpress, Lazada, Daraz, and Taobao Overseas.</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="teams stagger reveal">
+      <div class="team t1">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3><span data-lang="zh">智能技术 · Intelligence</span><span data-lang="en">Intelligence</span></h3>
+        <p>
+          <span data-lang="zh">搜索、推荐、广告、商品理解、AI 导购 Agent 与 AI Infra 全面布局。集团首批预估大模型 Xfmr 范式全量落地者；东南亚首个 AI Chatbot、全球首个 AI 视频语音搜的算法团队。</span>
+          <span data-lang="en">Search, recommendation, ads, product understanding, AI shopping agents and AI infra. Among the first to roll out transformer-based ranking at group scale; first AI chatbot in SEA, first AI video & voice search globally.</span>
+        </p>
+        <div class="chips">
+          <span>Recsys</span><span>Search</span><span>LLM</span><span>Multimodal</span><span>Agentic Search</span>
+        </div>
+      </div>
+      <div class="team t2">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 12l9 4 9-4"/><path d="M3 17l9 4 9-4"/></svg></div>
+        <h3><span data-lang="zh">供应链产技 · Supply Chain & Pricing</span><span data-lang="en">Supply Chain & Pricing</span></h3>
+        <p>
+          <span data-lang="zh">面向千亿级海外零售，用大模型、运筹优化、强化学习与仿真求解需求洞察、价格损益、库存供给、履约成本与体验。20+ 篇 AAAI/KDD/MS 高水平论文、10+ 项专利。</span>
+          <span data-lang="en">For trillion-RMB overseas retail. LLMs, operations research, RL and simulation solve demand sensing, pricing, inventory, and last-mile cost. 20+ AAAI/KDD/MS papers, 10+ patents.</span>
+        </p>
+        <div class="chips">
+          <span>Optimization</span><span>RL</span><span>Pricing</span><span>Simulation</span><span>Logistics</span>
+        </div>
+      </div>
+      <div class="team t3">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><path d="M7 7h.01M7 17h.01"/></svg></div>
+        <h3><span data-lang="zh">平台技术 · Platform & AI Infra</span><span data-lang="en">Platform & AI Infra</span></h3>
+        <p>
+          <span data-lang="zh">阿里海外业务的技术底座，覆盖基础设施到 AI Agent 全栈：SRE、安全合规、运维 Agent、FinOps × AI（AiCost）、Agent 全生命周期平台（设计 / 运行时 / 评测 / 治理 / 大模型网关）。</span>
+          <span data-lang="en">The technical backbone of AIDC: SRE, security, ops agents, FinOps × AI (AiCost), and a full Agent lifecycle platform — design, runtime, eval, governance, LLM gateway.</span>
+        </p>
+        <div class="chips">
+          <span>Agent Infra</span><span>FinOps</span><span>Observability</span><span>LLM Gateway</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STAR TRACKS -->
+<section id="tracks" style="background:linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <div class="sec-num">— 03 / Star Tracks</div>
+        <h2 class="sec-title">
+          <span data-lang="zh">8 个值得作为职业生涯起点的硬课题。</span>
+          <span data-lang="en">Eight hard problems worth the first chapter of your career.</span>
+        </h2>
+        <p class="sec-lead">
+          <span data-lang="zh">每一个课题都同时具备技术前沿性与业务影响力，且配套了算力、实习生编制、博士后站点与年度专项预算。Star 项目同时面向博士与优秀硕士开放。点击任一职位直接跳转校招官网。</span>
+          <span data-lang="en">Each track is both research-frontier and business-critical, backed by dedicated compute, intern headcount, postdoc seats, and annual budgets. Open to top PhDs and Master's alike. Click any role to apply on the campus portal.</span>
+        </p>
+      </div>
+      <div class="sec-num" style="white-space:nowrap"><span data-lang="zh">工作地：杭州 · 北京</span><span data-lang="en">Hangzhou · Beijing</span></div>
+    </div>
+
+    <div class="tracks stagger reveal" role="list">
+      <!-- 01 -->
+      <a class="track" role="listitem" href="https://campus-talent.alibaba.com/campus/position/199906140003" target="_blank" rel="noopener noreferrer">
+        <div class="n">01</div>
+        <div class="body">
+          <h4>
+            <span data-lang="zh">全球零售经营 AI Agent · 智能算法革新</span>
+            <span data-lang="en">Retail Operations AI Agent — Algorithm Reinvention</span>
+          </h4>
+          <p class="hook">
+            <span data-lang="zh">在最大规模的跨国零售里，让 Agent 真正"做决策、跑闭环"。</span>
+            <span data-lang="en">Let agents truly decide and close the loop in the largest cross-border retail playground.</span>
+          </p>
+          <div class="tags"><span>Agent</span><span>Decision</span><span>LLM</span><span>Retail</span></div>
+        </div>
+        <span class="loc"><span data-lang="zh">杭州</span><span data-lang="en">Hangzhou</span></span>
+        <span class="apply">
+          <span data-lang="zh">投递职位</span><span data-lang="en">Apply</span>
+          <span class="ar" aria-hidden="true">↗</span>
+        </span>
+      </a>
+      <!-- 02 -->
+      <a class="track" role="listitem" href="https://campus-talent.alibaba.com/campus/position/199906740002" target="_blank" rel="noopener noreferrer">
+        <div class="n">02</div>
+        <div class="body">
+          <h4>
+            <span data-lang="zh">Agent 全生命周期基建能力建设与应用</span>
+            <span data-lang="en">Agent Lifecycle Platform — From Design to Governance</span>
+          </h4>
+          <p class="hook">
+            <span data-lang="zh">设计、运行时、评测、治理、大模型网关：定义 Agent 的"操作系统"。</span>
+            <span data-lang="en">Design, runtime, evaluation, governance, LLM gateway — define the OS for agents.</span>
+          </p>
+          <div class="tags"><span>Agent Infra</span><span>Eval</span><span>LLMOps</span></div>
+        </div>
+        <span class="loc"><span data-lang="zh">杭州</span><span data-lang="en">Hangzhou</span></span>
+        <span class="apply">
+          <span data-lang="zh">投递职位</span><span data-lang="en">Apply</span>
+          <span class="ar" aria-hidden="true">↗</span>
+        </span>
+      </a>
+      <!-- 03 -->
+      <a class="track" role="listitem" href="https://campus-talent.alibaba.com/campus/position/199906900012" target="_blank" rel="noopener noreferrer">
+        <div class="n">03</div>
+        <div class="body">
+          <h4>
+            <span data-lang="zh">国际智能供应链与物流 AI Agent</span>
+            <span data-lang="en">International Supply Chain & Logistics Agent</span>
+          </h4>
+          <p class="hook">
+            <span data-lang="zh">在 200+ 国家的真实物流网络里，用 Agent 求解链路成本与履约体验。</span>
+            <span data-lang="en">Solve cost & experience across logistics networks spanning 200+ countries.</span>
+          </p>
+          <div class="tags"><span>OR</span><span>RL</span><span>Logistics</span><span>Agent</span></div>
+        </div>
+        <span class="loc"><span data-lang="zh">杭州</span><span data-lang="en">Hangzhou</span></span>
+        <span class="apply">
+          <span data-lang="zh">投递职位</span><span data-lang="en">Apply</span>
+          <span class="ar" aria-hidden="true">↗</span>
+        </span>
+      </a>
+      <!-- 04 -->
+      <a class="track" role="listitem" href="https://campus-talent.alibaba.com/campus/position/199906860014" target="_blank" rel="noopener noreferrer">
+        <div class="n">04</div>
+        <div class="body">
+          <h4>
+            <span data-lang="zh">国际智能定价与投资 AI Agent</span>
+            <span data-lang="en">International Pricing & Investment Agent</span>
+          </h4>
+          <p class="hook">
+            <span data-lang="zh">把定价从规则与回归升级为 Agent：决策、解释、自动优化。</span>
+            <span data-lang="en">Upgrade pricing from rules and regressions to agentic decisioning and auto-optimization.</span>
+          </p>
+          <div class="tags"><span>Pricing</span><span>Causal</span><span>RL</span></div>
+        </div>
+        <span class="loc"><span data-lang="zh">杭州</span><span data-lang="en">Hangzhou</span></span>
+        <span class="apply">
+          <span data-lang="zh">投递职位</span><span data-lang="en">Apply</span>
+          <span class="ar" aria-hidden="true">↗</span>
+        </span>
+      </a>
+      <!-- 05 -->
+      <a class="track" role="listitem" href="https://campus-talent.alibaba.com/campus/position/199906040018" target="_blank" rel="noopener noreferrer">
+        <div class="n">05</div>
+        <div class="body">
+          <h4>
+            <span data-lang="zh">全球化电商推荐大模型</span>
+            <span data-lang="en">Global Recommendation Foundation Model</span>
+          </h4>
+          <p class="hook">
+            <span data-lang="zh">推荐范式的下一代：超长行为序列 × 生成式排序 × 跨国家泛化。</span>
+            <span data-lang="en">The next paradigm of recsys: long-behavior sequences × generative ranking × cross-country generalization.</span>
+          </p>
+          <div class="tags"><span>Recsys</span><span>LLM</span><span>Generative Ranking</span></div>
+        </div>
+        <span class="loc"><span data-lang="zh">杭州</span><span data-lang="en">Hangzhou</span></span>
+        <span class="apply">
+          <span data-lang="zh">投递职位</span><span data-lang="en">Apply</span>
+          <span class="ar" aria-hidden="true">↗</span>
+        </span>
+      </a>
+      <!-- 06 -->
+      <a class="track" role="listitem" href="https://campus-talent.alibaba.com/campus/position/199906120005" target="_blank" rel="noopener noreferrer">
+        <div class="n">06</div>
+        <div class="body">
+          <h4>
+            <span data-lang="zh">多语言电商大模型 · 搜索系统革新</span>
+            <span data-lang="en">Multilingual Commerce LLM × Search Reinvention</span>
+          </h4>
+          <p class="hook">
+            <span data-lang="zh">跨语言 Query 理解 × 国家差异化召回排序 × 多模态商品认知。</span>
+            <span data-lang="en">Cross-lingual query understanding, country-aware retrieval/ranking, multimodal product cognition.</span>
+          </p>
+          <div class="tags"><span>Search</span><span>Multilingual</span><span>Multimodal</span></div>
+        </div>
+        <span class="loc"><span data-lang="zh">杭州</span><span data-lang="en">Hangzhou</span></span>
+        <span class="apply">
+          <span data-lang="zh">投递职位</span><span data-lang="en">Apply</span>
+          <span class="ar" aria-hidden="true">↗</span>
+        </span>
+      </a>
+      <!-- 07 -->
+      <a class="track" role="listitem" href="https://campus-talent.alibaba.com/campus/position/199906900010" target="_blank" rel="noopener noreferrer">
+        <div class="n">07</div>
+        <div class="body">
+          <h4>
+            <span data-lang="zh">海外电商图文与短视频生成</span>
+            <span data-lang="en">Overseas Commerce Image & Short-Video Generation</span>
+          </h4>
+          <p class="hook">
+            <span data-lang="zh">把生成模型推到"工业级商品素材"的可控、可解释、可上量。</span>
+            <span data-lang="en">Push generative models to industrial-grade commerce creatives — controllable, explainable, scalable.</span>
+          </p>
+          <div class="tags"><span>Diffusion</span><span>Video</span><span>Multimodal</span></div>
+        </div>
+        <span class="loc"><span data-lang="zh">杭州</span><span data-lang="en">Hangzhou</span></span>
+        <span class="apply">
+          <span data-lang="zh">投递职位</span><span data-lang="en">Apply</span>
+          <span class="ar" aria-hidden="true">↗</span>
+        </span>
+      </a>
+      <!-- 08 -->
+      <a class="track" role="listitem" href="https://campus-talent.alibaba.com/campus/position/199906960007" target="_blank" rel="noopener noreferrer">
+        <div class="n">08</div>
+        <div class="body">
+          <h4>
+            <span data-lang="zh">搜推广训推效能 · 高吞吐低延迟架构创新</span>
+            <span data-lang="en">Training–Inference Efficiency for Search / Rec / Ads</span>
+          </h4>
+          <p class="hook">
+            <span data-lang="zh">面向亿级 QPS 与超大模型，重构训推一体的工业级架构。</span>
+            <span data-lang="en">Re-architect training and inference for billion-QPS systems and ultra-large models.</span>
+          </p>
+          <div class="tags"><span>Systems</span><span>Inference</span><span>GPU</span></div>
+        </div>
+        <span class="loc"><span data-lang="zh">北京 / 杭州</span><span data-lang="en">Beijing / Hangzhou</span></span>
+        <span class="apply">
+          <span data-lang="zh">投递职位</span><span data-lang="en">Apply</span>
+          <span class="ar" aria-hidden="true">↗</span>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- WHO / WHY -->
+<section id="why">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <div class="sec-num">— 04 / Fit & Why</div>
+        <h2 class="sec-title">
+          <span data-lang="zh">我们在找谁，又为什么值得加入。</span>
+          <span data-lang="en">Who we look for, and why it’s worth joining.</span>
+        </h2>
+      </div>
+    </div>
+
+    <div class="ww">
+      <div class="panel reveal">
+        <h3><span data-lang="zh">我们在找什么样的人</span><span data-lang="en">Who we look for</span></h3>
+        <ul class="stagger">
+          <li><div class="b">01</div><div><b><span data-lang="zh">学术深度 × 业务理解</span><span data-lang="en">Research depth × business sense</span></b><p><span data-lang="zh">以博士与优秀硕士为主，能把自身研究方向自然延伸到电商搜索、推荐、广告、Agent、供应链等真实场景。</span><span data-lang="en">PhDs and outstanding Master's who naturally extend their research into search, ads, recsys, agents, and supply chain in production.</span></p></div></li>
+          <li><div class="b">02</div><div><b><span data-lang="zh">"帅才"特质，能定义方向</span><span data-lang="en">A "general", not just a soldier</span></b><p><span data-lang="zh">能独立设定课题、规划技术路径、推动一条战略级方向落地，而非被分配任务。</span><span data-lang="en">Set the topic, design the path, and drive a strategic direction end-to-end.</span></p></div></li>
+          <li><div class="b">03</div><div><b><span data-lang="zh">高内驱与长期主义</span><span data-lang="en">High agency, long horizon</span></b><p><span data-lang="zh">相信"激发优于指挥"，能在不确定性中坚持探索，接受"证明 work 与不 work 同样有价值"。</span><span data-lang="en">Believe in being inspired over being managed; stay the course through uncertainty.</span></p></div></li>
+          <li><div class="b">04</div><div><b><span data-lang="zh">敢啃业界最难的问题</span><span data-lang="en">Take on the hardest problems</span></b><p><span data-lang="zh">愿意聚焦多模态电商大模型、Agent 全生命周期、推荐广告范式重构、训推架构创新这类硬课题。</span><span data-lang="en">Multimodal commerce LLMs, agent lifecycle platforms, recsys/ads paradigm shifts, training-inference systems.</span></p></div></li>
+        </ul>
+      </div>
+
+      <div class="panel dark reveal">
+        <h3><span data-lang="zh">为什么是我们</span><span data-lang="en">Why us</span></h3>
+        <ul class="stagger">
+          <li><div class="b">01</div><div><b><span data-lang="zh">稀缺的真实实验场</span><span data-lang="en">A rare real-world lab</span></b><p><span data-lang="zh">200+ 国家、亿级流量、十亿级用户行为。数据丰度、场景复杂度、反馈闭环同时具备。</span><span data-lang="en">200+ countries, billions of users. Data richness, scenario complexity and feedback loops all in one place.</span></p></div></li>
+          <li><div class="b">02</div><div><b><span data-lang="zh">硬课题清单已就位</span><span data-lang="en">Hard tracks already mapped</span></b><p><span data-lang="zh">Star 重点方向覆盖购物 Agent、推荐/搜索大模型、多模态商品理解、Agent 基建、训推架构等。</span><span data-lang="en">Shopping agents, recsys/search foundation models, multimodal product cognition, agent infra, training-inference systems.</span></p></div></li>
+          <li><div class="b">03</div><div><b><span data-lang="zh">"技术 VC"式资源倾斜</span><span data-lang="en">"Tech VC" resource model</span></b><p><span data-lang="zh">算力、实习生编制、博士后站点、高校联合实验室、年度专项预算向 Star 人群重点倾斜。</span><span data-lang="en">Compute, intern slots, postdoc seats, joint labs, and an annual budget reserved for Star talent.</span></p></div></li>
+          <li><div class="b">04</div><div><b><span data-lang="zh">36 个月的成长支持体系</span><span data-lang="en">A 36-month growth path</span></b><p><span data-lang="zh">直接主管、业务导师、资深"师兄"、编外大咖的多层次支持 + 顶会优先名额。</span><span data-lang="en">Layered mentorship from manager, business guide, senior peer, and external advisors, plus priority for top conferences.</span></p></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA + QR -->
+<section id="contact">
+  <div class="wrap">
+    <div class="cta reveal">
+      <div class="cta-row">
+        <div>
+          <div class="sec-num" style="margin-bottom:10px">— 05 / Apply</div>
+          <h2>
+            <span data-lang="zh">来 找我们聊聊吧。</span>
+            <span data-lang="en">Come talk to us.</span>
+          </h2>
+          <p>
+            <span data-lang="zh">扫码登记意向、内推精准投递，或直接通过微信和我们建立"高效链接"。也欢迎在顶会现场找到我们当面聊。</span>
+            <span data-lang="en">Scan to register interest, request a referral, or reach us directly on WeChat. Find us in person at the top conferences.</span>
+          </p>
+          <div class="hero-ctas" style="margin-top:22px">
+            <a class="btn btn-brand" href="#tracks"><span data-lang="zh">查看 8 大课题</span><span data-lang="en">View 8 tracks</span><span class="ar">↓</span></a>
+            <a class="btn btn-ghost" href="https://campus-talent.alibaba.com/" target="_blank" rel="noopener noreferrer"><span data-lang="zh">校招官网</span><span data-lang="en">Campus portal</span><span class="ar">↗</span></a>
+          </div>
+        </div>
+        <div class="qrs">
+          <div class="qr brand">
+            <img src="qr_form.png" alt="意向登记二维码 Intent form QR" loading="lazy" />
+            <div class="t"><span data-lang="zh">意向登记</span><span data-lang="en">Register intent</span></div>
+          </div>
+          <div class="qr">
+            <img src="qr_referral.png" alt="内推精准投递二维码 Referral QR" loading="lazy" />
+            <div class="t"><span data-lang="zh">内推投递</span><span data-lang="en">Referral</span></div>
+          </div>
+          <div class="qr">
+            <img src="qr_wechat.png" alt="微信高效链接二维码 WeChat QR" loading="lazy" />
+            <div class="t"><span data-lang="zh">微信直达</span><span data-lang="en">WeChat</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap row">
+    <div>© <span id="y">2026</span> Alibaba International Digital Commerce · AIDC Star</div>
+    <div style="display:flex;gap:18px">
+      <a href="https://campus-talent.alibaba.com/" target="_blank" rel="noopener noreferrer">campus-talent.alibaba.com ↗</a>
+      <a href="#top"><span data-lang="zh">回到顶部</span><span data-lang="en">Back to top</span> ↑</a>
+    </div>
+  </div>
+</footer>
+
+<!-- JSON-LD for SEO (8 JobPosting) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {"@type":"JobPosting","title":"Retail Operations AI Agent","employmentType":"FULL_TIME","hiringOrganization":{"@type":"Organization","name":"Alibaba International Digital Commerce"},"jobLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Hangzhou","addressCountry":"CN"}},"url":"https://campus-talent.alibaba.com/campus/position/199906140003"},
+    {"@type":"JobPosting","title":"Agent Lifecycle Platform","employmentType":"FULL_TIME","hiringOrganization":{"@type":"Organization","name":"Alibaba International Digital Commerce"},"jobLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Hangzhou","addressCountry":"CN"}},"url":"https://campus-talent.alibaba.com/campus/position/199906740002"},
+    {"@type":"JobPosting","title":"International Supply Chain & Logistics Agent","employmentType":"FULL_TIME","hiringOrganization":{"@type":"Organization","name":"Alibaba International Digital Commerce"},"jobLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Hangzhou","addressCountry":"CN"}},"url":"https://campus-talent.alibaba.com/campus/position/199906900012"},
+    {"@type":"JobPosting","title":"International Pricing & Investment Agent","employmentType":"FULL_TIME","hiringOrganization":{"@type":"Organization","name":"Alibaba International Digital Commerce"},"jobLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Hangzhou","addressCountry":"CN"}},"url":"https://campus-talent.alibaba.com/campus/position/199906860014"},
+    {"@type":"JobPosting","title":"Global Recommendation Foundation Model","employmentType":"FULL_TIME","hiringOrganization":{"@type":"Organization","name":"Alibaba International Digital Commerce"},"jobLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Hangzhou","addressCountry":"CN"}},"url":"https://campus-talent.alibaba.com/campus/position/199906040018"},
+    {"@type":"JobPosting","title":"Multilingual Commerce LLM & Search","employmentType":"FULL_TIME","hiringOrganization":{"@type":"Organization","name":"Alibaba International Digital Commerce"},"jobLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Hangzhou","addressCountry":"CN"}},"url":"https://campus-talent.alibaba.com/campus/position/199906120005"},
+    {"@type":"JobPosting","title":"Overseas Commerce Image & Short-Video Generation","employmentType":"FULL_TIME","hiringOrganization":{"@type":"Organization","name":"Alibaba International Digital Commerce"},"jobLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Hangzhou","addressCountry":"CN"}},"url":"https://campus-talent.alibaba.com/campus/position/199906900010"},
+    {"@type":"JobPosting","title":"Training-Inference Efficiency for Search/Rec/Ads","employmentType":"FULL_TIME","hiringOrganization":{"@type":"Organization","name":"Alibaba International Digital Commerce"},"jobLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Beijing","addressCountry":"CN"}},"url":"https://campus-talent.alibaba.com/campus/position/199906960007"}
+  ]
+}
+</script>
+
+<script>
+  // -------- Year --------
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  // -------- i18n switch --------
+  (function(){
+    var supported = ['zh-CN','en'];
+    var url = new URL(location.href);
+    var fromUrl = url.searchParams.get('lang');
+    var stored = null;
+    try { stored = localStorage.getItem('aidc.lang'); } catch(e){}
+    var browser = (navigator.language||'').toLowerCase().startsWith('zh') ? 'zh-CN' : 'en';
+    var initial = supported.includes(fromUrl) ? fromUrl : (supported.includes(stored) ? stored : browser);
+
+    function apply(lang){
+      document.documentElement.lang = lang;
+      document.querySelectorAll('.lang button').forEach(function(b){
+        b.setAttribute('aria-pressed', b.getAttribute('data-set-lang') === lang ? 'true' : 'false');
+      });
+      try { localStorage.setItem('aidc.lang', lang); } catch(e){}
+      // update title / og locale
+      if(lang === 'en'){
+        document.title = 'AIDC · Star — Top Talent Recruiting';
+      } else {
+        document.title = 'AIDC · Star — 顶尖人才招聘';
+      }
+    }
+    apply(initial);
+
+    document.querySelectorAll('.lang button').forEach(function(b){
+      b.addEventListener('click', function(){ apply(b.getAttribute('data-set-lang')); });
+    });
+  })();
+
+  // -------- Reveal on scroll --------
+  (function(){
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      document.querySelectorAll('.reveal,.stagger').forEach(function(el){ el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.06 });
+    document.querySelectorAll('.reveal,.stagger').forEach(function(el){ io.observe(el); });
+  })();
+
+  // -------- Hero title: per-word reveal --------
+  (function(){
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var h1 = document.querySelector('h1.hero-title');
+    if (!h1) return;
+    h1.querySelectorAll('span[data-lang]').forEach(function(span){
+      // walk children, wrap text nodes char-by-char (Latin: word-by-word)
+      var html = span.innerHTML;
+      // detect Chinese (CJK) — split per glyph; Latin — split per word
+      var isCJK = /[\u4e00-\u9fff]/.test(span.textContent || '');
+      // Tokenize while preserving inline tags like <span class="accent">…</span> and <br/>
+      var tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      var i = 0;
+      function walk(node){
+        if (node.nodeType === 3) {
+          var text = node.nodeValue;
+          var frag = document.createDocumentFragment();
+          if (isCJK){
+            for (var k=0;k<text.length;k++){
+              var ch = text[k];
+              if (ch.trim() === ''){ frag.appendChild(document.createTextNode(ch)); continue; }
+              var s = document.createElement('span');
+              s.className = 'word'; s.style.setProperty('--i', i++); s.textContent = ch;
+              frag.appendChild(s);
+            }
+          } else {
+            text.split(/(\s+)/).forEach(function(part){
+              if (!part) return;
+              if (/^\s+$/.test(part)){ frag.appendChild(document.createTextNode(part)); return; }
+              var s = document.createElement('span');
+              s.className = 'word'; s.style.setProperty('--i', i++); s.textContent = part;
+              frag.appendChild(s);
+            });
+          }
+          node.parentNode.replaceChild(frag, node);
+        } else if (node.nodeType === 1) {
+          // recurse into element children (e.g. <span class="accent">)
+          [].slice.call(node.childNodes).forEach(walk);
+        }
+      }
+      [].slice.call(tmp.childNodes).forEach(walk);
+      span.innerHTML = '';
+      while (tmp.firstChild) span.appendChild(tmp.firstChild);
+    });
+    // trigger when title enters view
+    requestAnimationFrame(function(){ h1.classList.add('in'); });
+  })();
+
+  // -------- Hero canvas: subtle particle field --------
+  (function(){
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var canvas = document.getElementById('heroCanvas');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d', { alpha: true });
+    var DPR = Math.min(window.devicePixelRatio || 1, 2);
+    var particles = [];
+    var W = 0, H = 0;
+    var pointer = { x: -9999, y: -9999, active: false };
+
+    function resize(){
+      var rect = canvas.getBoundingClientRect();
+      W = rect.width; H = rect.height;
+      canvas.width  = Math.max(1, Math.floor(W * DPR));
+      canvas.height = Math.max(1, Math.floor(H * DPR));
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+      // density scales with viewport, capped
+      var area = W * H;
+      var target = Math.max(42, Math.min(96, Math.round(area / 13000)));
+      while (particles.length < target) particles.push(makeParticle());
+      while (particles.length > target) particles.pop();
+    }
+    function makeParticle(){
+      var hueRoll = Math.random();
+      // 70% brand orange, 25% cool blue, 5% neutral — orange-biased
+      var color = hueRoll < .70 ? 'oklch(0.72 0.18 55 / OP)'
+                : hueRoll < .95 ? 'oklch(0.66 0.14 230 / OP)'
+                                : 'oklch(0.72 0.02 250 / OP)';
+      return {
+        x: Math.random() * W,
+        y: Math.random() * H,
+        vx: (Math.random() - 0.5) * 0.16,
+        vy: (Math.random() - 0.5) * 0.12,
+        r: 0.8 + Math.random() * 1.8,
+        a: 0.22 + Math.random() * 0.44,
+        color: color
+      };
+    }
+
+    function step(){
+      ctx.clearRect(0, 0, W, H);
+      // soft connecting lines
+      for (var i=0;i<particles.length;i++){
+        var p = particles[i];
+        // pointer attraction
+        if (pointer.active){
+          var dx = pointer.x - p.x, dy = pointer.y - p.y;
+          var d2 = dx*dx + dy*dy;
+          if (d2 < 22500){ // 150px radius
+            var f = (1 - d2/22500) * 0.012;
+            p.vx += dx * f; p.vy += dy * f;
+          }
+        }
+        p.vx *= 0.985; p.vy *= 0.985;
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < -10) p.x = W + 10; else if (p.x > W + 10) p.x = -10;
+        if (p.y < -10) p.y = H + 10; else if (p.y > H + 10) p.y = -10;
+
+        ctx.beginPath();
+        ctx.fillStyle = p.color.replace('OP', p.a.toFixed(2));
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+
+        // links
+        for (var j=i+1;j<particles.length;j++){
+          var q = particles[j];
+          var ddx = q.x - p.x, ddy = q.y - p.y;
+          var dd = ddx*ddx + ddy*ddy;
+          if (dd < 12000){
+            var alpha = (1 - dd/12000) * 0.13;
+            ctx.strokeStyle = 'oklch(0.72 0.09 55 / ' + alpha.toFixed(3) + ')';
+            ctx.lineWidth = 0.7;
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(q.x, q.y);
+            ctx.stroke();
+          }
+        }
+      }
+      raf = requestAnimationFrame(step);
+    }
+
+    var raf = 0;
+    function start(){ if (!raf) raf = requestAnimationFrame(step); }
+    function stop(){ if (raf){ cancelAnimationFrame(raf); raf = 0; } }
+
+    canvas.addEventListener('mousemove', function(ev){
+      var rect = canvas.getBoundingClientRect();
+      pointer.x = ev.clientX - rect.left;
+      pointer.y = ev.clientY - rect.top;
+      pointer.active = true;
+    });
+    canvas.parentElement.addEventListener('mouseleave', function(){ pointer.active = false; });
+    // pointer is on hero section, but canvas is pointer-events:none — capture via hero
+    var hero = canvas.closest('.hero');
+    if (hero){
+      hero.addEventListener('mousemove', function(ev){
+        var rect = canvas.getBoundingClientRect();
+        pointer.x = ev.clientX - rect.left;
+        pointer.y = ev.clientY - rect.top;
+        pointer.active = true;
+      });
+      hero.addEventListener('mouseleave', function(){ pointer.active = false; });
+    }
+    window.addEventListener('resize', resize, { passive: true });
+
+    // Visibility-aware: pause when hero scrolls out of view or tab hidden
+    var visible = true;
+    var vio = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        visible = e.isIntersecting;
+        if (visible && !document.hidden) start(); else stop();
+      });
+    }, { threshold: 0.05 });
+    if (hero) vio.observe(hero);
+    document.addEventListener('visibilitychange', function(){
+      if (document.hidden) stop(); else if (visible) start();
+    });
+
+    resize(); start();
+  })();
+
+  // -------- Magnetic CTA buttons (subtle) --------
+  (function(){
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (matchMedia('(hover: none)').matches) return; // skip on touch
+    document.querySelectorAll('.btn-brand').forEach(function(btn){
+      var rafId = 0;
+      btn.addEventListener('mousemove', function(ev){
+        var r = btn.getBoundingClientRect();
+        var dx = (ev.clientX - (r.left + r.width/2)) / r.width;
+        var dy = (ev.clientY - (r.top  + r.height/2)) / r.height;
+        cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(function(){
+          btn.style.transform = 'translate(' + (dx*5).toFixed(2) + 'px,' + (dy*4).toFixed(2) + 'px)';
+        });
+      });
+      btn.addEventListener('mouseleave', function(){
+        cancelAnimationFrame(rafId);
+        btn.style.transform = '';
+      });
+    });
+  })();
+
+  // -------- Count-up for AIDC numbers strip --------
+  (function(){
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var strip = document.querySelector('.aidc-nums');
+    if (!strip) return;
+    var played = false;
+    function animateNumber(el, finalText){
+      // extract leading integer; keep suffix
+      var m = finalText.match(/^([0-9]+(?:\.[0-9]+)?)(.*)$/s);
+      if (!m){ return; }
+      var target = parseFloat(m[1]);
+      var suffix = m[2];
+      var start = performance.now();
+      var dur = 900;
+      function tick(now){
+        var t = Math.min(1, (now - start) / dur);
+        // ease-out-expo
+        var eased = t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+        var current = (target * eased);
+        var disp = (target % 1 === 0) ? Math.round(current).toString() : current.toFixed(1);
+        el.firstChild.nodeValue = disp + suffix;
+        if (t < 1) requestAnimationFrame(tick);
+        else el.firstChild.nodeValue = m[1] + suffix;
+      }
+      // capture original text in first text node only; preserve trailing element nodes
+      el.firstChild.nodeValue = '0' + suffix;
+      requestAnimationFrame(tick);
+    }
+    var io2 = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting && !played){
+          played = true;
+          strip.querySelectorAll('.v').forEach(function(v){
+            // capture pure leading text node, e.g. "200" of "200<span class=u>+</span>"
+            var firstText = v.firstChild;
+            if (firstText && firstText.nodeType === 3 && firstText.nodeValue && /^\s*[0-9]/.test(firstText.nodeValue)){
+              animateNumber(v, firstText.nodeValue.trim());
+            }
+          });
+          io2.disconnect();
+        }
+      });
+    }, { threshold: 0.4 });
+    io2.observe(strip);
+  })();
+</script>
+
+</body>
+</html>
